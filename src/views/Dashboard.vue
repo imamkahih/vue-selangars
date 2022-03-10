@@ -10,9 +10,15 @@ export default {
   name: "Dashboard",
   methods: {
     logout() {
-      alert("Berhasil Logout");
-      localStorage.clear();
-      this.$router.push({ name: "Login" });
+      this.$confirm("Yakin untuk keluar?").then(() => {
+        let loader = this.$loading.show({});
+        setTimeout(() => {
+          loader.hide();
+        }, 1000);
+        this.$toast.success("Berhasil logout!");
+        localStorage.clear();
+        this.$router.push({ name: "Login" });
+      });
     },
   },
   mounted() {

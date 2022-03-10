@@ -6,7 +6,7 @@
         <h1>Login</h1>
       </div>
       <div class="col-md-6">
-        <form>
+        <form @submit.prevent="login">
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input
@@ -15,6 +15,7 @@
               id="email"
               aria-describedby="emailHelp"
               v-model="email"
+              required
             />
           </div>
           <div class="mb-3">
@@ -24,9 +25,10 @@
               class="form-control"
               id="password"
               v-model="password"
+              required
             />
           </div>
-          <button class="btn btn-primary mx-auto" @click="login">Login</button>
+          <button class="btn btn-primary mx-auto">Login</button>
         </form>
       </div>
     </div>
@@ -54,14 +56,21 @@ export default {
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
       if (result.status == 200 && result.data.length > 0) {
-        alert("Berhasil Login");
+        let loader = this.$loading.show({});
+        setTimeout(() => {
+          loader.hide();
+        }, 1000);
+        this.$toast.success("Berhasil login!");
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
         this.$router.push({ name: "Dashboard" });
       } else {
-        alert("Gagal Login!");
+        let loader = this.$loading.show({});
+        setTimeout(() => {
+          loader.hide();
+        }, 1000);
+        this.$toast.error("Gagal login!");
         this.$router.push({ name: "Login" });
       }
-      // console.warn(result);
     },
   },
   mounted() {

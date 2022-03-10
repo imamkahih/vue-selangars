@@ -6,7 +6,7 @@
         <h1>Register</h1>
       </div>
       <div class="col-md-6">
-        <form @submit="register">
+        <form @submit.prevent="register">
           <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
             <input
@@ -16,6 +16,7 @@
               name="nama"
               v-model="nama"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           <div class="mb-3">
@@ -27,6 +28,7 @@
               name="email"
               v-model="email"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           <div class="mb-3">
@@ -37,6 +39,8 @@
               id="password"
               name="password"
               v-model="password"
+              minlength="8"
+              required
             />
           </div>
           <div class="mb-3">
@@ -49,13 +53,10 @@
               id="passwordretype"
               name="passwordretype"
               v-model="passwordretype"
+              required
             />
           </div>
-          <input
-            class="btn btn-primary btn-md mx-auto"
-            value="Register"
-            type="submit"
-          />
+          <button class="btn btn-primary mx-auto">Register</button>
         </form>
       </div>
     </div>
@@ -80,11 +81,14 @@ export default {
     };
   },
   methods: {
-    async register(e) {
-      e.preventDefault();
+    async register() {
       // console.warn(this.nama, this.email, this.password, this.passwordretype);
       if (this.password != this.passwordretype) {
-        alert("Password yang dimasukkan tidak sama");
+        let loader = this.$loading.show({});
+        setTimeout(() => {
+          loader.hide();
+        }, 1000);
+        this.$toast.error("Gagal registrasi!");
         this.$router.push({ name: "Register" });
       } else {
         let result = await axios.post("http://localhost:3000/users", {
@@ -92,11 +96,13 @@ export default {
           email: this.email,
           password: this.password,
         });
-        // console.warn(result);
         if (result.status == 201) {
-          alert("Berhasil Register");
-          localStorage.setItem("user-info", JSON.stringify(result.data));
-          this.$router.push({ name: "Dashboard" });
+          let loader = this.$loading.show({});
+          setTimeout(() => {
+            loader.hide();
+          }, 1000);
+          this.$toast.success("Berhasil registrasi!");
+          this.$router.push({ name: "Login" });
         }
       }
     },
