@@ -28,7 +28,11 @@
               required
             />
           </div>
-          <button class="btn btn-primary mx-auto">Login</button>
+          <button class="btn btn-primary mx-auto">
+            <div v-if="loading" class="spinner-border spinner-border-sm"></div>
+            <span v-if="loading" class="px-1">Loading</span>
+            <span v-else>Login</span>
+          </button>
         </form>
       </div>
     </div>
@@ -46,28 +50,31 @@ export default {
   },
   data() {
     return {
+      loading: false,
       email: "",
       password: "",
     };
   },
   methods: {
     async login() {
+      this.loading = !false;
+      setTimeout(() => {
+        this.loading = !true;
+      }, 2000);
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
       if (result.status == 200 && result.data.length > 0) {
-        let loader = this.$loading.show({});
-        setTimeout(() => {
-          loader.hide();
-        }, 1000);
         this.$toast.success("Berhasil login!");
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
-        this.$router.push({ name: "Dashboard" });
+        if (result.data[0].id_role === "3") {
+          this.$router.push({ name: "sDashboard" });
+        } else if (result.data[0].id_role === "2") {
+          this.$router.push({ name: "aDashboard" });
+        } else {
+          this.$router.push({ name: "uDashboard" });
+        }
       } else {
-        let loader = this.$loading.show({});
-        setTimeout(() => {
-          loader.hide();
-        }, 1000);
         this.$toast.error("Gagal login!");
         this.$router.push({ name: "Login" });
       }

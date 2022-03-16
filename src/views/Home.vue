@@ -16,9 +16,17 @@ export default {
     Navbar,
   },
   mounted() {
-    let user = localStorage.getItem("user-info");
+    let user = JSON.parse(localStorage.getItem("user-info"));
     if (user) {
-      this.$router.push({ name: "Dashboard" });
+      if (user.id_role === "3") {
+        this.$router.push({ name: "sDashboard" });
+      } else if (user.id_role === "2") {
+        this.$router.push({ name: "aDashboard" });
+      } else {
+        this.$router.push({ name: "uDashboard" });
+      }
+    } else {
+      this.$router.push({ name: "Home" });
     }
   },
 };

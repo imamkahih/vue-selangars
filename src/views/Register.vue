@@ -56,7 +56,11 @@
               required
             />
           </div>
-          <button class="btn btn-primary mx-auto">Register</button>
+          <button class="btn btn-primary mx-auto">
+            <div v-if="loading" class="spinner-border spinner-border-sm"></div>
+            <span v-if="loading" class="px-1">Loading</span>
+            <span v-else>Register</span>
+          </button>
         </form>
       </div>
     </div>
@@ -78,16 +82,17 @@ export default {
       email: "",
       password: "",
       passwordretype: "",
+      id_role: "1",
+      loading: false,
     };
   },
   methods: {
     async register() {
-      // console.warn(this.nama, this.email, this.password, this.passwordretype);
+      this.loading = !false;
+      setTimeout(() => {
+        this.loading = !true;
+      }, 2000);
       if (this.password != this.passwordretype) {
-        let loader = this.$loading.show({});
-        setTimeout(() => {
-          loader.hide();
-        }, 1000);
         this.$toast.error("Gagal registrasi!");
         this.$router.push({ name: "Register" });
       } else {
@@ -95,12 +100,9 @@ export default {
           nama: this.nama,
           email: this.email,
           password: this.password,
+          id_role: this.id_role,
         });
         if (result.status == 201) {
-          let loader = this.$loading.show({});
-          setTimeout(() => {
-            loader.hide();
-          }, 1000);
           this.$toast.success("Berhasil registrasi!");
           this.$router.push({ name: "Login" });
         }

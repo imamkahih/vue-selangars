@@ -2,7 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Dashboard from '../views/Dashboard.vue'
+import aDashboard from '../views/admin/Dashboard.vue'
+import sDashboard from '../views/superAdmin/Dashboard.vue'
+import uDashboard from '../views/user/Dashboard.vue'
 
 const routes = [
   {
@@ -19,10 +21,21 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
-  },{
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard
+  },
+  {
+    path: '/admin/dashboard',
+    name: 'aDashboard',
+    component: aDashboard
+  },
+  {
+    path: '/super-admin/dashboard',
+    name: 'sDashboard',
+    component: sDashboard
+  },
+  {
+    path: '/user/dashboard',
+    name: 'uDashboard',
+    component: uDashboard
   },
   {
     path: '/about',
