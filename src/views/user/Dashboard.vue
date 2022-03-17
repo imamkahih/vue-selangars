@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <Navbar />
-    <h1>Dashboard</h1>
+    <h1>Dashboard User</h1>
   </div>
 </template>
 
