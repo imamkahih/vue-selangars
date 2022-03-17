@@ -1,24 +1,20 @@
 <template>
   <div class="">
-    <h1>dashboard user</h1>
-    <a href="#" @click="logout" class="btn btn-sm btn-success">Logout</a>
+    <Navbar />
+    <h1>Dashboard</h1>
   </div>
 </template>
 
 <script>
+import Navbar from "@/components/user/Navbar.vue";
+
 export default {
   name: "uDashboard",
-  methods: {
-    logout() {
-      this.$confirm("Yakin untuk keluar?").then(() => {
-        this.$toast.success("Berhasil logout!");
-        localStorage.clear();
-        this.$router.push({ name: "Login" });
-      });
-    },
+  components: {
+    Navbar,
   },
   mounted() {
-    let user = JSON.parse(localStorage.getItem("user-info"));
+    let user = localStorage.getItem("user-info");
     if (!user) {
       this.$router.push({ name: "Home" });
     }
