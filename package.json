@@ -16,11 +16,8 @@
     "jquery": "^3.6.0",
     "v3confirm": "^1.1.1",
     "vue": "^3.0.0",
-    "vue-loading-overlay": "^5.0.3",
     "vue-router": "^4.0.0-0",
-    "vue-toast-notification": "^3.0.0",
-    "vue3-simple-alert-next": "^1.0.2",
-    "vuejs-dialog": "^1.4.2"
+    "vue-toast-notification": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
