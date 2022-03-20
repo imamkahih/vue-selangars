@@ -1,7 +1,9 @@
 <template>
   <div class="pengguna">
     <Navbar />
-    <h1>Pengguna</h1>
+    <div class="container mt-2 mb-2">
+      <h1>Daftar Pengguna</h1>
+    </div>
     <UserTable />
   </div>
 </template>
