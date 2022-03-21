@@ -22,8 +22,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in users" :key="user.id">
-          <td>{{ user.id }}</td>
+        <tr v-for="(user, index) in users" :key="user.id">
+          <td>{{ index + 1 }}</td>
           <td>{{ user.nama }}</td>
           <td>{{ user.email }}</td>
           <td>{{ setRoles(user.id_role) }}</td>
@@ -58,37 +58,60 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label"
+                    <div class="mb-3 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label"
                         >Nama</label
                       >
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="detail.nama"
-                        readonly
-                      />
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          readonly
+                          class="form-control-plaintext"
+                          id="staticEmail"
+                          v-model="detail.nama"
+                        />
+                      </div>
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label"
+                    <div class="mb-3 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label"
                         >Email</label
                       >
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="detail.email"
-                        readonly
-                      />
+                      <div class="col-sm-10">
+                        <input
+                          type="email"
+                          readonly
+                          class="form-control-plaintext"
+                          id="staticEmail"
+                          v-model="detail.email"
+                        />
+                      </div>
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label"
+                    <div class="mb-3 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label"
                         >Role</label
                       >
-                      <select class="form-select">
-                        <option>Super Admin</option>
-                        <option>Admin</option>
-                        <option>Pengguna</option>
-                      </select>
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          readonly
+                          class="form-control-plaintext"
+                          id="staticEmail"
+                          :value="setRoles(detail.id_role)"
+                        />
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          v-model="detail.id_role"
+                        >
+                          <option
+                            v-for="role in roles"
+                            :value="role.value"
+                            :key="role.id"
+                          >
+                            {{ role.text }}
+                          </option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                   <div class="modal-footer">
@@ -99,8 +122,17 @@
                     >
                       Batal
                     </button>
-                    <button type="button" class="btn btn-primary">
-                      Simpan
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click.prevent="updateRole(detail.id)"
+                    >
+                      <div
+                        v-if="loading"
+                        class="spinner-border spinner-border-sm"
+                      ></div>
+                      <span v-if="loading" class="px-1">Loading</span>
+                      <span v-else>Simpan</span>
                     </button>
                   </div>
                 </div>
@@ -123,6 +155,12 @@ export default {
       users: [],
       detail: [],
       search: "",
+      roles: [
+        { text: "Pengguna", value: "1" },
+        { text: "Admin", value: "2" },
+        { text: "Super Admin", value: "3" },
+      ],
+      loading: false,
     };
   },
   methods: {
@@ -152,6 +190,20 @@ export default {
         .get("http://localhost:3000/users/" + id)
         .then((response) => this.detailUser(response.data))
         .catch((error) => console.log("Gagal :", error));
+    },
+    updateRole(id) {
+      this.loading = !false;
+      setTimeout(() => {
+        this.loading = !true;
+      }, 2000);
+      const data = {
+        nama: this.detail.nama,
+        email: this.detail.email,
+        id_role: this.detail.id_role,
+      };
+      axios.put(`http://localhost:3000/users/${id}`, data);
+      this.$toast.success("Berhasil diubah!");
+      this.$router.go();
     },
   },
   mounted() {
