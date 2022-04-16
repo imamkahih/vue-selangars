@@ -64,6 +64,37 @@ export default {
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
+      // await axios
+      //   .post(
+      //     "https://tepang.herokuapp.com/v1/auth/login/super-administrator",
+      //     {
+      //       email: this.email,
+      //       password: this.password,
+      //     }
+      //   )
+      //   .then((res) => {
+      //     if (res.data.meta.status) {
+      //       localStorage.setItem("access_token", res.data.data);
+      //       console.log(res.data.data);
+      //       axios.defaults.headers.common.Authorization =
+      //         "Bearer " + localStorage.getItem("access_token");
+      //       axios.get("https://tepang.herokuapp.com/v1/user/me").then((res) => {
+      //         if (res.data.meta.status) {
+      //           console.log(res.data.data.role);
+      //           for (const item in res.data.data.role) {
+      //             if (Object.hasOwnProperty.call(res.data.data.role, item)) {
+      //               const role = res.data.data.role[item];
+      //               console.log(role.name);
+      //               if (role.name === "superadministrator") {
+      //                 this.$toast.success(`Berhasil login! ${role.name}`);
+      //               }
+      //             }
+      //           }
+      //         }
+      //       });
+      //     }
+      //   });
+
       if (result.status == 200 && result.data.length > 0) {
         this.$toast.success("Berhasil login!");
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
@@ -79,12 +110,6 @@ export default {
         this.$router.push({ name: "Login" });
       }
     },
-  },
-  mounted() {
-    let user = localStorage.getItem("user-info");
-    if (user) {
-      this.$router.push({ name: "Home" });
-    }
   },
 };
 </script>

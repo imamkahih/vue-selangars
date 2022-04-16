@@ -10,6 +10,9 @@ import sPengguna from '../views/superAdmin/Pengguna.vue'
 import aDashboard from '../views/admin/Dashboard.vue'
 import aLapangan from '../views/admin/Lapangan.vue'
 import aLapanganSaya from '../views/admin/LapanganSaya.vue'
+import aLapanganDetail from '../views/admin/LapanganDetail.vue'
+import aLapanganTambah from '../views/admin/LapanganTambah.vue'
+import aLapanganEdit from '../views/admin/LapanganEdit.vue'
 
 import uDashboard from '../views/user/Dashboard.vue'
 import uLapangan from '../views/user/Lapangan.vue'
@@ -59,6 +62,20 @@ const routes = [
     path: '/admin/lapangan-saya',
     name: 'aLapanganSaya',
     component: aLapanganSaya
+  },{
+    path: '/admin/tambah-lapang',
+    name: 'aLapanganTambah',
+    component: aLapanganTambah
+  },
+  {
+    path: '/admin/lapangan/:id',
+    name: 'aLapanganDetail',
+    component: aLapanganDetail
+  },
+  {
+    path: '/admin/edit-lapangan/:id',
+    name: 'aLapanganEdit',
+    component: aLapanganEdit
   },
   {
     path: '/pengguna/dashboard',
