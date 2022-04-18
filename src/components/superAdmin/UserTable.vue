@@ -199,6 +199,7 @@ export default {
       const data = {
         nama: this.detail.nama,
         email: this.detail.email,
+        password: this.detail.password,
         id_role: this.detail.id_role,
       };
       axios.put(`http://localhost:3000/users/${id}`, data);

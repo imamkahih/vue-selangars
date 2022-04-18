@@ -13,6 +13,7 @@ import aLapanganSaya from '../views/admin/LapanganSaya.vue'
 import aLapanganDetail from '../views/admin/LapanganDetail.vue'
 import aLapanganTambah from '../views/admin/LapanganTambah.vue'
 import aLapanganEdit from '../views/admin/LapanganEdit.vue'
+import aLapanganBooking from '../views/admin/LapanganBooking.vue'
 
 import uDashboard from '../views/user/Dashboard.vue'
 import uLapangan from '../views/user/Lapangan.vue'
@@ -76,6 +77,11 @@ const routes = [
     path: '/admin/edit-lapangan/:id',
     name: 'aLapanganEdit',
     component: aLapanganEdit
+  },
+  {
+    path: '/admin/booking-lapangan/:id',
+    name: 'aLapanganBooking',
+    component: aLapanganBooking
   },
   {
     path: '/pengguna/dashboard',

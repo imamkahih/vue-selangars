@@ -11,7 +11,11 @@
         <b>{{ lapang.alamat }}</b>
         {{ lapang.jns_olah_raga }}<br />{{ lapang.harga }}
       </p>
-      <button class="btn btn-info">Booking</button>
+      <router-link
+        :to="`/admin/booking-lapangan/` + lapang.id"
+        class="btn btn-info"
+        >Booking</router-link
+      >
     </div>
   </div>
 </template>

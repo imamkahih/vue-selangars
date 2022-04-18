@@ -96,17 +96,22 @@ export default {
         this.$toast.error("Password yang anda masukkan tidak sama!");
         this.$router.push({ name: "Register" });
       } else {
-        let result = await axios.post(
-          "https://tepang.herokuapp.com/v1/auth/register/super-administrator",
-          {
-            name: this.nama,
-            email: this.email,
-            password: this.password,
-            // id_role: this.id_role,
-          }
-        );
-        // console.log(result);
-        if (result.status == 200) {
+        let result = await axios.post("http://localhost:3000/users", {
+          nama: this.nama,
+          email: this.email,
+          password: this.password,
+          id_role: this.id_role,
+        });
+        // let result = await axios.post(
+        //   "https://tepang.herokuapp.com/v1/auth/register/super-administrator",
+        //   {
+        //     name: this.nama,
+        //     email: this.email,
+        //     password: this.password,
+        //   }
+        // );
+        console.log(result);
+        if (result.status == 201) {
           this.$toast.success("Berhasil registrasi!");
           this.$router.push({ name: "Login" });
         } else {
