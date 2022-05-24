@@ -1,9 +1,9 @@
 <template>
-  <div class="card" style="width: 17.5rem">
+  <div class="card">
     <img
       :src="lapang.image_url"
       class="card-img-top rounded-3"
-      style="width: 100%; height: 200px"
+      style="width: 100%; height: 15vw; object-fit: cover"
     />
     <div class="card-body">
       <h5 class="card-title">{{ lapang.nama_lapang }}</h5>

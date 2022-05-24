@@ -1,0 +1,163 @@
+{
+  "users": [
+    {
+      "nama": "User",
+      "email": "user@user.com",
+      "password": "12345678",
+      "id_role": "1",
+      "id": "1"
+    },
+    {
+      "nama": "Admin",
+      "email": "admin@admin.com",
+      "password": "12345678",
+      "id_role": "2",
+      "id": "2"
+    },
+    {
+      "nama": "Super Admin",
+      "email": "super@admin.com",
+      "password": "12345678",
+      "id_role": "3",
+      "id": "3"
+    },
+    {
+      "nama": "Imam Muhammad Mannar Shahih",
+      "email": "immshahih20@gmail.com",
+      "password": "12345678",
+      "id_role": "2",
+      "id": "kNIgofL"
+    }
+  ],
+  "role": [
+    {
+      "id": "1",
+      "nama": "User"
+    },
+    {
+      "id": "2",
+      "nama": "Admin"
+    },
+    {
+      "id": "3",
+      "nama": "Super Admin"
+    }
+  ],
+  "lapang": [
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://1.bp.blogspot.com/-q3g-gmo_hO4/VtqYz2Af1PI/AAAAAAAAAAk/-P2awGUSMFs/s1600/mengenali-jenis-jenis-lapangan-futsal.jpg"
+    },
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://1.bp.blogspot.com/-q3g-gmo_hO4/VtqYz2Af1PI/AAAAAAAAAAk/-P2awGUSMFs/s1600/mengenali-jenis-jenis-lapangan-futsal.jpg"
+    },
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://1.bp.blogspot.com/-q3g-gmo_hO4/VtqYz2Af1PI/AAAAAAAAAAk/-P2awGUSMFs/s1600/mengenali-jenis-jenis-lapangan-futsal.jpg"
+    },
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://1.bp.blogspot.com/-q3g-gmo_hO4/VtqYz2Af1PI/AAAAAAAAAAk/-P2awGUSMFs/s1600/mengenali-jenis-jenis-lapangan-futsal.jpg"
+    },
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://sidomulyo-bantul.desa.id/assets/files/artikel/sedang_1567487817WhatsApp%20Image%202019-09-02%20at%2008.43.41.jpeg"
+    },
+    {
+      "id": "1",
+      "id_owner": "2",
+      "nama_lapang": "Dimagh Futsal",
+      "jns_olahraga": "Futsal",
+      "jns_lapang": "Tembok",
+      "ukuran_lapang": "40m x 25 m",
+      "harga": "60000",
+      "alamat": "Cileunyi",
+      "deskripsi": "Waktu buka setiap hari dari jam 08.00-22.00",
+      "image_url": "https://1.bp.blogspot.com/-q3g-gmo_hO4/VtqYz2Af1PI/AAAAAAAAAAk/-P2awGUSMFs/s1600/mengenali-jenis-jenis-lapangan-futsal.jpg"
+    }
+  ],
+  "event": [
+    {
+      "id_owner": "2",
+      "nama_event": "Turnamen Sepakbola",
+      "nama_penyelenggara": "YPR 330",
+      "waktu_event": "2022-05-24",
+      "deskripsi": "turnamen dalam rangka ulang tahun yfuvwdaukybdvkuaybwdjbhakuhbdwaui dauywbdkuawb aduybdwa \ndwalidbawl",
+      "image_url": "https://sidomulyo-bantul.desa.id/assets/files/artikel/sedang_1567487817WhatsApp%20Image%202019-09-02%20at%2008.43.41.jpeg",
+      "id": 1
+    },{
+      "id_owner": "2",
+      "nama_event": "Turnamen Sepakbola",
+      "nama_penyelenggara": "YPR 330",
+      "waktu_event": "2022-05-24",
+      "deskripsi": "turnamen dalam rangka ulang tahun yfuvwdaukybdvkuaybwdjbhakuhbdwaui dauywbdkuawb aduybdwa \ndwalidbawl",
+      "image_url": "https://sidomulyo-bantul.desa.id/assets/files/artikel/sedang_1567487817WhatsApp%20Image%202019-09-02%20at%2008.43.41.jpeg",
+      "id": 3
+    },{
+      "id_owner": "2",
+      "nama_event": "Turnamen Sepakbola",
+      "nama_penyelenggara": "YPR 330",
+      "waktu_event": "2022-05-24",
+      "deskripsi": "turnamen dalam rangka ulang tahun yfuvwdaukybdvkuaybwdjbhakuhbdwaui dauywbdkuawb aduybdwa \ndwalidbawl",
+      "image_url": "https://beritasulsel.com/wp-content/uploads/2019/11/IMG-20191113-WA0064.jpg",
+      "id": 4
+    },{
+      "id_owner": "2",
+      "nama_event": "Turnamen Sepakbola",
+      "nama_penyelenggara": "YPR 330",
+      "waktu_event": "2022-05-24",
+      "deskripsi": "turnamen dalam rangka ulang tahun yfuvwdaukybdvkuaybwdjbhakuhbdwaui dauywbdkuawb aduybdwa \ndwalidbawl",
+      "image_url": "https://sidomulyo-bantul.desa.id/assets/files/artikel/sedang_1567487817WhatsApp%20Image%202019-09-02%20at%2008.43.41.jpeg",
+      "id": 2
+    },{
+      "id_owner": "2",
+      "nama_event": "Turnamen Sepakbola",
+      "nama_penyelenggara": "YPR 330",
+      "waktu_event": "2022-05-24",
+      "deskripsi": "turnamen dalam rangka ulang tahun yfuvwdaukybdvkuaybwdjbhakuhbdwaui dauywbdkuawb aduybdwa \ndwalidbawl",
+      "image_url": "https://sidomulyo-bantul.desa.id/assets/files/artikel/sedang_1567487817WhatsApp%20Image%202019-09-02%20at%2008.43.41.jpeg",
+      "id": 5
+    }
+  ]
+}

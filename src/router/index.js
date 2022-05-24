@@ -9,6 +9,9 @@ import sPengguna from '../views/superAdmin/Pengguna.vue'
 
 import aDashboard from '../views/admin/Dashboard.vue'
 import aLapangan from '../views/admin/Lapangan.vue'
+import aEvent from '../views/admin/Event.vue'
+import aEventSaya from '../views/admin/EventSaya.vue'
+import aEventTambah from '../views/admin/EventTambah.vue'
 import aLapanganSaya from '../views/admin/LapanganSaya.vue'
 import aLapanganDetail from '../views/admin/LapanganDetail.vue'
 import aLapanganTambah from '../views/admin/LapanganTambah.vue'
@@ -63,6 +66,18 @@ const routes = [
     path: '/admin/lapangan-saya',
     name: 'aLapanganSaya',
     component: aLapanganSaya
+  },{
+    path: '/admin/event',
+    name: 'aEvent',
+    component: aEvent
+  },{
+    path: '/admin/event-saya',
+    name: 'aEventSaya',
+    component: aEventSaya
+  },{
+    path: '/admin/event-tambah',
+    name: 'aEventTambah',
+    component: aEventTambah
   },{
     path: '/admin/tambah-lapang',
     name: 'aLapanganTambah',

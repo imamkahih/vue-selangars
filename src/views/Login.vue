@@ -82,14 +82,16 @@ export default {
       //         if (res.data.meta.status) {
       //           console.log(res.data.data.role);
       //           for (const item in res.data.data.role) {
-      //             if (Object.hasOwnProperty.call(res.data.data.role, item)) {
-      //               const role = res.data.data.role[item];
-      //               console.log(role.name);
-      //               if (role.name === "superadministrator") {
-      //                 this.$toast.success(`Berhasil login! ${role.name}`);
-      //               }
-      //             }
-      //           }
+      //   if (Object.hasOwnProperty.call(res.data.data.role, item)) {
+      //     const role = res.data.data.role[item];
+      //     // console.log(role.name);
+      //     if (role.name === "superadministrator") {
+      //       localStorage.setItem("role", role.name);
+      //       this.$router.push({ name: "sDashboard" });
+      //       this.$toast.success(`Berhasil login! ${role.name}`);
+      //     }
+      //   }
+      // }
       //         }
       //       });
       //     }
