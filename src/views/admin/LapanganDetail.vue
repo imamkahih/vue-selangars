@@ -14,11 +14,11 @@
               />
             </div>
             <div class="col-md-7">
-              <h5 style="card-title">{{ lapang.nama_lapang }}</h5>
+              <h5 class="card-title">{{ lapang.nama_lapang }}</h5>
               <p class="card-text">
                 <strong>{{ lapang.jns_olahraga }}</strong>
               </p>
-              <p style="card-text">{{ lapang.alamat }}</p>
+              <p class="card-text">{{ lapang.alamat }}</p>
               <div class="row">
                 <div class="col">
                   <p>{{ lapang.jns_lapang }}</p>
@@ -27,8 +27,8 @@
                   <p>{{ lapang.ukuran_lapang }}</p>
                 </div>
               </div>
-              <p style="card-text">{{ lapang.deskripsi }}</p>
-              <p style="card-text">
+              <p class="card-text">{{ lapang.deskripsi }}</p>
+              <p class="card-text">
                 <strong>{{ lapang.harga }}</strong>
               </p>
               <a @click="$router.go(-1)" class="btn btn-secondary">Kembali</a>

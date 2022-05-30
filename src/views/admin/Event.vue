@@ -3,24 +3,9 @@
     <Navbar />
     <div class="container">
       <h1>Daftar Event</h1>
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-md-6 mb-3" v-for="event in event" :key="event.id">
+          <CardEvent :event="event" />
         </div>
       </div>
     </div>
@@ -29,11 +14,30 @@
 
 <script>
 import Navbar from "@/components/admin/Navbar.vue";
+import CardEvent from "@/components/admin/CardEvent.vue";
+import axios from "axios";
 
 export default {
   name: "aEvent",
   components: {
     Navbar,
+    CardEvent,
+  },
+  data() {
+    return {
+      event: [],
+    };
+  },
+  methods: {
+    setEvent(data) {
+      this.event = data;
+    },
+  },
+  mounted() {
+    axios
+      .get(`http://localhost:3000/event`)
+      .then((response) => this.setEvent(response.data))
+      .catch((error) => console.log("Gagal :", error));
   },
 };
 </script>

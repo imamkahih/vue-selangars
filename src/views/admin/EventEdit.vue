@@ -1,13 +1,17 @@
 <template>
-  <div>
+  <div class="">
     <Navbar />
     <div class="container">
       <h1>Tambah Event</h1>
-      <form @submit.prevent="tambahEvent">
+      <form @submit.prevent="updateEvent(event.id)">
         <div class="mb-3 row">
           <label class="col-sm-2 col-form-label">Nama Event</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" v-model="nama_event" />
+            <input
+              type="text"
+              class="form-control"
+              v-model="event.nama_event"
+            />
           </div>
         </div>
         <div class="mb-3 row">
@@ -16,14 +20,18 @@
             <input
               type="text"
               class="form-control"
-              v-model="nama_penyelenggara"
+              v-model="event.nama_penyelenggara"
             />
           </div>
         </div>
         <div class="mb-3 row">
           <label class="col-sm-2 col-form-label">Waktu Event</label>
           <div class="col-sm-3">
-            <input type="date" class="form-control" v-model="waktu_event" />
+            <input
+              type="date"
+              class="form-control"
+              v-model="event.waktu_event"
+            />
           </div>
         </div>
         <div class="mb-3 row">
@@ -32,7 +40,7 @@
             <textarea
               class="form-control"
               rows="3"
-              v-model="deskripsi"
+              v-model="event.deskripsi"
             ></textarea>
           </div>
         </div>
@@ -47,7 +55,7 @@
             />
           </div>
           <div class="col-sm-6">
-            <img :src="previewImg" style="height: 150px" v-if="previewImg" />
+            <img :src="event.image_url" style="height: 150px" />
           </div>
         </div>
         <div class="mb-3 row">
@@ -63,16 +71,17 @@
 </template>
 
 <script>
-import axios from "axios";
 import Navbar from "@/components/admin/Navbar.vue";
+import axios from "axios";
 
 export default {
-  name: "aEventTambah",
+  name: "aEventEdit",
   components: {
     Navbar,
   },
   data() {
     return {
+      event: {},
       nama_event: "",
       nama_penyelenggara: "",
       waktu_event: "",
@@ -82,33 +91,41 @@ export default {
     };
   },
   methods: {
+    setEvent(data) {
+      this.event = data;
+    },
     upload(event) {
       const namaImg = event.target.files[0].name;
       this.image_url = namaImg;
-      this.previewImg = URL.createObjectURL(event.target.files[0]);
+      this.event.image_url = URL.createObjectURL(event.target.files[0]);
     },
-    tambahEvent() {
+    updateEvent(id) {
       var owner = JSON.parse(localStorage.getItem("user-info"));
-      var id = owner.id;
+      var id_owner = owner.id;
       const data = {
-        id_owner: id,
-        nama_event: this.nama_event,
-        nama_penyelenggara: this.nama_penyelenggara,
-        waktu_event: this.waktu_event,
-        deskripsi: this.deskripsi,
-        image_url: this.image_url,
+        id_owner: id_owner,
+        nama_event: this.event.nama_event,
+        nama_penyelenggara: this.event.nama_penyelenggara,
+        waktu_event: this.event.waktu_event,
+        deskripsi: this.event.deskripsi,
+        image_url: this.event.image_url,
       };
-      // console.log(data);
       axios
-        .post("http://localhost:3000/event", data)
+        .put(`http://localhost:3000/event/${id}`, data)
         .then(() => {
-          this.$toast.success("Berhasil ditambahkan!");
-          this.$router.push({ name: "aEventSaya" });
+          this.$toast.success("Berhasil edit!");
+          this.$router.go(-1);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log(error.response);
         });
     },
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/event/" + this.$route.params.id)
+      .then((response) => this.setEvent(response.data))
+      .catch((error) => console.log("Gagal :", error));
   },
 };
 </script>

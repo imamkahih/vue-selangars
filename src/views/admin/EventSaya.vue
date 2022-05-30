@@ -8,7 +8,7 @@
       >
       <div class="row">
         <div class="col-md-6 mb-3" v-for="event in event" :key="event.id">
-          <CardEvent :event="event" />
+          <CardEventSaya :event="event" />
         </div>
       </div>
     </div>
@@ -17,14 +17,14 @@
 
 <script>
 import Navbar from "@/components/admin/Navbar.vue";
-import CardEvent from "@/components/admin/CardEvent.vue";
+import CardEventSaya from "@/components/admin/CardEventSaya.vue";
 import axios from "axios";
 
 export default {
   name: "aEventSaya",
   components: {
     Navbar,
-    CardEvent,
+    CardEventSaya,
   },
   data() {
     return {

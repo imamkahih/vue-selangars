@@ -18,7 +18,7 @@
             <small class="text-muted">{{ event.nama_event }}</small>
           </p>
           <router-link
-            :to="`/admin/event-detail/` + event.id"
+            :to="`/admin/event-saya-detail/` + event.id"
             class="btn btn-info"
             >Lihat</router-link
           >
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "CardEvent",
+  name: "CardEventSaya",
   props: ["event"],
 };
 </script>

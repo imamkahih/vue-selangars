@@ -12,6 +12,9 @@ import aLapangan from '../views/admin/Lapangan.vue'
 import aEvent from '../views/admin/Event.vue'
 import aEventSaya from '../views/admin/EventSaya.vue'
 import aEventTambah from '../views/admin/EventTambah.vue'
+import aEventDetail from '../views/admin/EventDetail.vue'
+import aEventDetailSaya from '../views/admin/EventDetailSaya.vue'
+import aEventEdit from '../views/admin/EventEdit.vue'
 import aLapanganSaya from '../views/admin/LapanganSaya.vue'
 import aLapanganDetail from '../views/admin/LapanganDetail.vue'
 import aLapanganTambah from '../views/admin/LapanganTambah.vue'
@@ -78,6 +81,18 @@ const routes = [
     path: '/admin/event-tambah',
     name: 'aEventTambah',
     component: aEventTambah
+  },{
+    path: '/admin/event-detail/:id',
+    name: 'aEventDetail',
+    component: aEventDetail
+  },{
+    path: '/admin/event-saya-detail/:id',
+    name: 'aEventDetailSaya',
+    component: aEventDetailSaya
+  },{
+    path: '/admin/edit-event/:id',
+    name: 'aEventEdit',
+    component: aEventEdit
   },{
     path: '/admin/tambah-lapang',
     name: 'aLapanganTambah',
